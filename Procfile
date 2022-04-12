@@ -1,1 +1,1 @@
-worker: java -jar mortgage.jar
+web: java -jar mortgage.jar
