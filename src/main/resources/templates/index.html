@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Main page</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Go to main page</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/create">Create bank</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/count">Count mortgage</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div th:if="${banks == 0}">
+    <h2>Add your first bank</h2>
+</div>
+<div th:unless="${banks == 0}">
+    <div class="bank-card" th:each="bank : ${banks}">
+        <h1 th:text="'Bank name: ' + ${bank.name}"></h1>
+        <p th:text="'Interest rate: ' + ${bank.interestRate}"></p>
+        <p th:text="'Maximum loan: ' + ${bank.maximumLoan}"></p>
+        <p th:text="'Minimum down payment: ' + ${bank.minimumDownPayment}"></p>
+        <p th:text="'Loan term: ' + ${bank.loanTerm}"></p>
+        <a th:href="'/edit/' + ${bank.id}" class="btn btn-primary">Edit</a>
+        <a th:href="'/delete/' + ${bank.id}" class="btn btn-primary">Delete</a>
+    </div>
+</div>
+</body>
+<style>
+    .navbar {
+        background-color: #BFBEBD;
+    }
+
+    .bank-card {
+        background-color: #DCDCDB;
+        margin: 20px;
+        padding: 20px;
+    }
+</style>
+</html>
