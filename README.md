@@ -8,7 +8,8 @@ This app has web-UI and API.
 You can run app from any Java IDE or run jar-file
 from command line(Terminal in Mac/Linux).
 
-Also this app is deployed to heroku
+Also this app is deployed to heroku, you can access it with link below
+	https://eliftech-credit-calculator.herokuapp.com/
 
 ### Running guide
 
